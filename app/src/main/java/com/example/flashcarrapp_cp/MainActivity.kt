@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.VIEW_MODEL_STORE_OWNER_KEY
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,16 +15,19 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val flashcardQuestion = findViewById<TextView>(R.id.flashcard_question)
+        val flashcardQuestion = findViewById<TextView>(R.id. flashcard_question)
         val flashcardAnswer = findViewById<TextView>(R.id.flashcard_answer)
         flashcardQuestion.setOnClickListener {
             flashcardQuestion.visibility = View.INVISIBLE
             flashcardAnswer.visibility = View.VISIBLE
         }
+
         flashcardAnswer.setOnClickListener {
             flashcardQuestion.visibility = View.VISIBLE
             flashcardAnswer.visibility = View.INVISIBLE
         }
+
+
 
     }
 }
