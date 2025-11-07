@@ -24,7 +24,7 @@ Je suis Carlz Stanley Schadrac MILFORT
 - [x] Envoyer le code sur GitHu
 
 <img src="https://github.com/Milfort-000/FlascardApp_CP/blob/main/GIF_20251107_085111_300.gif" width=200><br>
-
+Message: le background est de couleur blanc.
 ## Facultatif
 - [x] Basculer la fiche entre le côté question et le côté réponse
 - [x] Mettez en forme le côté question et le côté réponse de la carte pour mieux distinguer les deux côtés.
