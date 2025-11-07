@@ -22,9 +22,12 @@ Je suis Carlz Stanley Schadrac MILFORT
 - [x] Ajouter une vue pour le verso de la fiche afin d'afficher la réponse
 - [x] Intégrer une logique permettant d'afficher la face réponse lorsque la carte est touchée.
 - [x] Envoyer le code sur GitHu
+
+<img src="" width=200><br>
+
 ## Facultatif
-- [ ] Basculer la fiche entre le côté question et le côté réponse
-- [ ] Mettez en forme le côté question et le côté réponse de la carte pour mieux distinguer les deux côtés.
-- [ ] Ajouter des réponses à choix multiples sélectionnables sous la carte
-   - [ ] Modifier la couleur de fond des réponses à choix multiples lorsqu'on clique dessus pour indiquer si la question a reçu la bonne réponse.
-- [ ] Personnalisez et stylisez davantage la carte
+- [x] Basculer la fiche entre le côté question et le côté réponse
+- [x] Mettez en forme le côté question et le côté réponse de la carte pour mieux distinguer les deux côtés.
+- [x] Ajouter des réponses à choix multiples sélectionnables sous la carte
+- [x] Modifier la couleur de fond des réponses à choix multiples lorsqu'on clique dessus pour indiquer si la question a reçu la bonne réponse.
+- [x] Personnalisez et stylisez davantage la carte
