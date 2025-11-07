@@ -23,7 +23,7 @@ Je suis Carlz Stanley Schadrac MILFORT
 - [x] Intégrer une logique permettant d'afficher la face réponse lorsque la carte est touchée.
 - [x] Envoyer le code sur GitHu
 
-<img src="" width=200><br>
+<img src="https://github.com/Milfort-000/FlascardApp_CP/blob/main/GIF_20251107_085111_300.gif" width=200><br>
 
 ## Facultatif
 - [x] Basculer la fiche entre le côté question et le côté réponse
