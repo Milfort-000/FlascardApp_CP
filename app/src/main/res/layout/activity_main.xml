@@ -14,6 +14,7 @@
         android:layout_height="200dp"
         android:gravity="center"
         android:text="Who is the 44th president of the United States ?"
+        android:textStyle="bold"
         android:textSize="40sp"
         android:textColor="#000000"
         android:elevation="10dp"
@@ -24,63 +25,138 @@
         android:background="@drawable/card_background"
        />
 
- <LinearLayout
-
-
-        android:id="@+id/choicesLayout"
-        android:layout_below="@+id/flashcard_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:visibility="gone"
-        >
-
-    <TextView
-        android:id="@+id/flashcard_answer1"
-        android:layout_below="@id/flashcard_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Bill Clinton"
-        android:textSize="40sp"
-        android:textColor="#000000"
-        android:background="#FFCC89"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
-
-    <TextView
-        android:id="@+id/flashcard_answer2"
-        android:layout_below="@id/flashcard_answer1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="George H. W. Bush"
-        android:textSize="40sp"
-        android:textColor="#000000"
-        android:background="#FFCC89"
-        android:padding="12dp"
-        android:layout_marginTop="8dp"
-        />
-
     <TextView
         android:id="@+id/flashcard_answer3"
-        android:layout_below="@id/flashcard_answer2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Barack Obama"
-        android:textSize="40sp"
-        android:textColor="#000000"
+        android:layout_marginTop="90dp"
         android:background="#FFCC89"
+        android:gravity="center"
         android:padding="12dp"
-        android:layout_marginTop="8dp"
+        android:text="Barack Obama"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:visibility="invisible"
         />
- 
-</LinearLayout>
-      <ImageView
+
+    <ImageView
+        android:id="@+id/cercle_plus_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="196dp"
+        android:clickable="true"
+        android:contentDescription="Bouton plus"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:src="@drawable/cercle_plus_icon" />
+
+    <!--
+    <ImageView
+        android:id="@+id/save_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="50dp"
+        android:layout_marginStart="198dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="378dp"
+        android:clickable="true"
+        android:contentDescription="Save"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:src="@drawable/save_icon" />
+    -->
+
+    <!-- <ImageView
+         android:id="@+id/cercle_annuler_icon"
+         android:layout_width="60dp"
+         android:layout_height="60dp"
+         android:layout_marginTop="600dp"
+         android:src="@drawable/cercle_annuler_icon"
+         android:layout_alignRight="@id/cercle_icon_plus"
+         android:contentDescription="Annuler"
+         android:clickable="true"
+         android:focusable="true"
+         android:orientation="horizontal"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentEnd="true"
+         android:layout_margin="20dp"
+         android:elevation="8dp"
+         android:visibility="gone"
+         /> -->
+
+
+    <!--
+     <LinearLayout
+
+
+            android:id="@+id/choicesLayout"
+            android:layout_below="@+id/flashcard_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+
+        <TextView
+            android:id="@+id/flashcard_answer1"
+            android:layout_below="@id/flashcard_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Bill Clinton"
+            android:textSize="40sp"
+            android:textColor="#000000"
+            android:background="#FFCC89"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <TextView
+            android:id="@+id/flashcard_answer2"
+            android:layout_below="@id/flashcard_answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="George H. W. Bush"
+            android:textSize="40sp"
+            android:textColor="#000000"
+            android:background="#FFCC89"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            />
+
+        <TextView
+            android:id="@+id/flashcard_answer3"
+            android:layout_below="@id/flashcard_answer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Barack Obama"
+            android:textSize="40sp"
+            android:textColor="#000000"
+            android:background="#FFCC89"
+            android:padding="12dp"
+            android:layout_marginTop="8dp"
+            />
+
+    </LinearLayout>
+        -->
+
+    <!--
+         <ImageView
           android:layout_width="60dp"
           android:layout_height="60dp"
           android:id="@+id/yeuxouvert"
@@ -91,7 +167,7 @@
           android:contentDescription="Afficher ou cacher la réponse"
           android:clickable="true"
           android:focusable="true"
-          />
+          /> -->
 
 
 
