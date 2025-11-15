@@ -16,6 +16,8 @@ import android.widget.ImageView
 import com.google.android.material.snackbar.Snackbar
 
 
+
+
 class AjouterActiviteCarte : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +83,16 @@ class AjouterActiviteCarte : AppCompatActivity() {
             ).show()
            return@setOnClickListener
         } */
+        //Pre fill if editing
+        val existingQuestion = intent.getStringExtra("string1")
+        val existingAnswer = intent.getStringExtra("string2")
+
+        if (!existingQuestion.isNullOrEmpty()) {
+            questionField.setText(existingQuestion)
+        }
+
+        if (!existingAnswer.isNullOrEmpty())
+            answerField.setText(existingAnswer)
 
 
 

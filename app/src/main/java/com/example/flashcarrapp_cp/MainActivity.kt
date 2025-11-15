@@ -149,7 +149,25 @@ class MainActivity : AppCompatActivity() {
            */
         }
 
-           cercle_plus_icon = findViewById<ImageView>(R.id.cercle_plus_icon)
+       val edit_icon = findViewById<ImageView>(R.id.edit_icon)
+       edit_icon.setOnClickListener {
+           val intent = Intent(this, AjouterActiviteCarte::class.java)
+
+           // Passer la question et reponse actuelles a AjouterActiviteCarte pour les editer
+           intent.putExtra(
+               "string1",
+               flashcardQuestion.text.toString().replace("(Click to reveal answer)", "").trim()
+           )
+           intent.putExtra(
+               "string2",
+               flashcardAnswer.text.toString().replace("(R:)", "").trim()
+           )
+           resultLauncher.launch(intent)
+       }
+
+
+
+       cercle_plus_icon = findViewById<ImageView>(R.id.cercle_plus_icon)
             /*save_icon = findViewById(R.id.save_icon)*/
 
             // Clique sur "+"

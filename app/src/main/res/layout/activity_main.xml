@@ -57,6 +57,15 @@
         android:orientation="horizontal"
         android:src="@drawable/cercle_plus_icon" />
 
+    <ImageView
+        android:id="@+id/edit_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:layout_alignBottom="@+id/cercle_plus_icon"
+        android:contentDescription="Editer"
+        android:src="@drawable/edit_icon" />
+
     <!--
     <ImageView
         android:id="@+id/save_icon"
