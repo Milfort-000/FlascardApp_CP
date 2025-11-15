@@ -52,9 +52,11 @@ Message: le background est de couleur blanc.
 - [x] User will see the card they just created on the main screen when they press the 'Save Button'
 - [x] Push your progress to GitHub!
 
+<img src="https://github.com/Milfort-000/FlascardApp_CP/blob/main/GIF_20251115_102926_200.gif?raw=true" width=200><br> 
+
 ## Optional
-- [ ] User can edit a card
+- [x] User can edit a card
 - [ ] An error message is shown if the user doesn't enter both a Question and an Answer
 - [x] A notification is shown if the card was created successfully
 - [ ] User can also enter multiple choice answers when creating a card
-- [ ] App is further styled and customized!
+- [x] App is further styled and customized!
