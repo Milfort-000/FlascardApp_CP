@@ -22,7 +22,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
 
 
-
+lateinit var flashcardDatabase: FlashcardDatabase
+var allFlashcard = mutableListOf<Flashcard>()
 
 class MainActivity : AppCompatActivity() {
    /* private var isShowingAnswer = false */
@@ -31,7 +32,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+       //allFlashcard = flashcardDatabase.getAllCards().toMutableList()
 
+/* val flashcardDb = FlashcardDatabase(this)
+       flashcardDb.initFirstCard()
+       Log.d("DB_TEST", flashcardDb.getAllCards().toString()) */
 
         val flashcardQuestion = findViewById<TextView>(R.id. flashcard_question)
         val flashcardAnswer = findViewById<TextView>(R.id.flashcard_answer3)
@@ -45,6 +50,32 @@ class MainActivity : AppCompatActivity() {
             flashcardQuestion.visibility = View.VISIBLE
             flashcardAnswer.visibility = INVISIBLE
         }
+
+       flashcardDatabase = FlashcardDatabase(this)
+       // Create default card only the FIRST TIME (si DB vide)
+       if (flashcardDatabase.getAllCards().isEmpty()) {
+           flashcardDatabase.insertCard(
+               Flashcard(
+                   "Who is the 44th president of the United States?",
+                   "Barack Obama"
+               )
+           )
+       }
+
+       // Charger toutes les cartes
+      // allFlashcard = flashcardDatabase.getAllCards().toMutableList()
+       //flashcardDatabase.initFirstCard()
+       allFlashcard = flashcardDatabase.getAllCards().toMutableList()
+
+       if (allFlashcard.isNotEmpty()) {
+           flashcardQuestion.text = allFlashcard[0].question
+           flashcardAnswer.text = allFlashcard[0].answer
+       }
+
+       /*if (allFlashcard.size > 0) {
+           findViewById<TextView>(R.id.flashcard_question).text = allFlashcard[0].question
+           findViewById<TextView>(R.id.flashcard_answer3).text = allFlashcard[0].answer
+       }*/
 
           // New logic
 
@@ -116,22 +147,41 @@ class MainActivity : AppCompatActivity() {
 
 
         // Préparation du resultLauncher pour recevoir le résultat
-        val resultLauncher = registerForActivityResult(
+       /* val resultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
             val data: Intent? = result.data
-            if (data != null) {
-                val string1 = data.getStringExtra("string1")
-                val string2 = data.getStringExtra("string2")
+            val extras = data?.extras
+            if (extras != null) { // Check that we have data returned
+                val string1 = extras.getString("string1") ?: ""
+                val string2 = extras.getString("string2") ?: ""
 
                 Log.i("MainActivity", "string1: $string1")
                 Log.i("MainActivity", "string2: $string2")
 
+                // Save newly created flashcard database
+                if (string1 != null && string2 != null) {
+                    flashcardDatabase.insertCard(Flashcard(string1, string2))
+                    // Update set of flascards to include new card
+                    allFlashcard = flashcardDatabase.getAllCards().toMutableList()
+                } else {
+                    Log.e("TAG", "Missing question or answer to input into database. Question is $string1 and answer is $string2")
+                }
+
                 // Remplacer la carte par defaut par la nouvelle carte
 
-                flashcardQuestion.text = "Q:$string1/n(Click to reaveal answer)"
+                flashcardQuestion.text = "Q:$string1\n(Click to reaveal answer)"
                 flashcardAnswer.text = "R:$string2"
                 flashcardAnswer.visibility = View.INVISIBLE
+
+                flashcardDb.insertCard(Flashcard(string1, string2))
+                //val allCards = flashcardDb.getAllCards()
+                if (allFlashcard.isNotEmpty()) {
+                    val lastCard = allFlashcard.last()
+                    flashcardQuestion.text = "Q: ${lastCard.question}\n(Click to reveal answer)"
+                    flashcardAnswer.text = "R: ${lastCard.answer}"
+                    flashcardAnswer.visibility = View.INVISIBLE
+                }
 
                 Snackbar.make(
                     findViewById(R.id.flashcard_question),
@@ -140,7 +190,42 @@ class MainActivity : AppCompatActivity() {
                 ).show()
             } else {
                 Log.i("MainActivity", "Returned null data from AddCardActivity")
-            }
+            } */
+
+       val resultLauncher = registerForActivityResult(
+           ActivityResultContracts.StartActivityForResult()
+       ) { result ->
+           val data = result.data
+
+           if (data != null && result.resultCode == RESULT_OK) {
+               val question = data.getStringExtra("string1") ?: ""
+               val answer = data.getStringExtra("string2") ?: ""
+
+               if (question.isNotEmpty() && answer.isNotEmpty()) {
+
+                   // Sauvegarde en base
+                   flashcardDatabase.insertCard(Flashcard(question, answer))
+
+                   // Recharge la liste
+                   allFlashcard = flashcardDatabase.getAllCards().toMutableList()
+
+                   // Affiche la dernière carte
+                   val last = allFlashcard.last()
+                   flashcardQuestion.text = last.question
+                   flashcardAnswer.text = last.answer
+                   flashcardAnswer.visibility = View.INVISIBLE
+
+                   Snackbar.make(
+                       findViewById(R.id.flashcard_question),
+                       "Carte enregistrée",
+                       Snackbar.LENGTH_SHORT
+                   ).show()
+               }
+           }
+
+
+
+
 
           /*  // Après retour, on remet les boutons dans leur état initial
             cercle_annuler_icon.visibility = View.GONE
@@ -180,6 +265,28 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, AjouterActiviteCarte::class.java)
                 resultLauncher.launch(intent)
             }
+       var currentCardDisplayIndex = 0
+       val next_icon = findViewById<ImageView>(R.id.next_icon)
+       next_icon.setOnClickListener {
+           if (allFlashcard.size ==0) {
+               return@setOnClickListener
+           }
+           currentCardDisplayIndex++
+           if(currentCardDisplayIndex >= allFlashcard.size) {
+               Snackbar.make(
+                   findViewById<TextView>(R.id.flashcard_question),
+                   "You ve reached" ,
+                   Snackbar.LENGTH_SHORT).show()
+               currentCardDisplayIndex = 0
+           }
+           allFlashcard = flashcardDatabase.getAllCards().toMutableList()
+           val (string1, string2) = allFlashcard[currentCardDisplayIndex]
+           findViewById<TextView>(R.id.flashcard_answer3).text = string2
+           findViewById<TextView>(R.id.flashcard_question).text = string1
+       }
+
+
+
 
 
 

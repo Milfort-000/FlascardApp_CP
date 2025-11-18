@@ -66,6 +66,16 @@
         android:contentDescription="Editer"
         android:src="@drawable/edit_icon" />
 
+    <ImageView
+        android:id="@+id/next_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="320dp"
+        android:contentDescription="Next"
+        android:layout_above="@id/cercle_plus_icon"
+        android:src="@drawable/next_icon" />
+
+
     <!--
     <ImageView
         android:id="@+id/save_icon"
