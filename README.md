@@ -60,3 +60,28 @@ Message: le background est de couleur blanc.
 - [x] A notification is shown if the card was created successfully
 - [ ] User can also enter multiple choice answers when creating a card
 - [x] App is further styled and customized!
+
+
+📝 `NOTE` Collez ce modèle en haut de votre fichier `README.md` existant du dernier TP.
+
+## TP 3
+
+### Description de l'application
+`TODO://` Ajouter la description de l'application
+
+### Présentation de l'application
+`TODO://` Ajoutez l'URL de votre GIF animé de présentation de l'application dans la balise image ci-dessous. Assurez-vous que le GIF s'affiche et s'anime correctement lors de la consultation de ce fichier README. (☝️ Supprimez ce paragraphe après avoir ajouté le GIF)
+
+<img src="VOTRE_URL_GIF_ICI" width=200><br>
+
+`TODO://` Dans la section « Histoires utilisateur » ci-dessous, ajoutez un `x` entre les crochets `-[ ]` comme ceci : `- [x]` pour chaque histoire utilisateur terminée. (☝️ Supprimez ce paragraphe une fois les histoires utilisateur terminées.)
+
+## Requis
+- [x] L'utilisateur peut créer une carte et la voir à nouveau lorsque l'application est relancée.
+- [x] L'utilisateur peut créer plusieurs cartes et parcourir toutes les cartes créées.
+
+## Facultatif
+- [ ] L'utilisateur peut supprimer une carte et ne plus la voir dans son deck.
+- [ ] Les flashcards sont affichées dans un ordre aléatoire au lieu de l'ordre dans lequel elles ont été créées.
+- [ ] L'utilisateur peut modifier une carte et voir la modification enregistrée lorsqu'il parcourt son jeu de cartes.
+- [ ] L'utilisateur peut créer des fiches avec plusieurs réponses et parcourir celles affichant les réponses à choix multiples.
