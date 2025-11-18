@@ -83,5 +83,5 @@ Message: le background est de couleur blanc.
 ## Facultatif
 - [ ] L'utilisateur peut supprimer une carte et ne plus la voir dans son deck.
 - [ ] Les flashcards sont affichées dans un ordre aléatoire au lieu de l'ordre dans lequel elles ont été créées.
-- [ ] L'utilisateur peut modifier une carte et voir la modification enregistrée lorsqu'il parcourt son jeu de cartes.
+- [x] L'utilisateur peut modifier une carte et voir la modification enregistrée lorsqu'il parcourt son jeu de cartes.
 - [ ] L'utilisateur peut créer des fiches avec plusieurs réponses et parcourir celles affichant les réponses à choix multiples.
