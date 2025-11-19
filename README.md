@@ -85,3 +85,29 @@ Message: le background est de couleur blanc.
 - [ ] Les flashcards sont affichées dans un ordre aléatoire au lieu de l'ordre dans lequel elles ont été créées.
 - [x] L'utilisateur peut modifier une carte et voir la modification enregistrée lorsqu'il parcourt son jeu de cartes.
 - [ ] L'utilisateur peut créer des fiches avec plusieurs réponses et parcourir celles affichant les réponses à choix multiples.
+
+
+📝 `NOTE` Collez ce modèle en haut de votre fichier `README.md` existant du dernier TP.
+
+## TP 4
+
+### Description de l'application
+`TODO://` Ajouter la description de l'application
+
+### Présentation de l'application
+`TODO://` Ajoutez l'URL de votre GIF animé de présentation de l'application dans la balise image ci-dessous. Assurez-vous que le GIF s'affiche et s'anime correctement lors de la consultation de ce fichier README. (☝️ Supprimez ce paragraphe après avoir ajouté le GIF)
+
+<img src="https://github.com/Milfort-000/FlascardApp_CP/blob/main/GIF_20251119_083758_951.gif?raw=true" width=200><br>
+
+`TODO://` Dans la section « Histoires utilisateur » ci-dessous, ajoutez un `x` entre les crochets `-[ ]` comme ceci : `- [x]` pour chaque histoire utilisateur terminée. (☝️ Supprimez ce paragraphe une fois les histoires utilisateur terminées.)
+
+## Requis
+- [x] L'utilisateur voit une animation de transition lorsqu'il passe de l'écran principal à l'écran d'ajout de carte.
+- [x] L'utilisateur voit une animation de révélation lorsque la carte est sélectionnée et la réponse s'affiche.
+- [x] L'utilisateur voit les flashcards s'animer en apparaissant/disparaissant lorsqu'il appuie sur le bouton « suivant ».
+
+## Facultatif
+- [ ] Un style supplémentaire a été ajouté !
+- [ ] L'utilisateur voit un compte à rebours pour chaque question
+- [ ] L'utilisateur voit une animation de « retournement de carte » lorsqu'il appuie sur la carte.
+- [ ] L'utilisateur voit une animation de célébration avec des confettis lorsqu'il répond correctement à une question.
