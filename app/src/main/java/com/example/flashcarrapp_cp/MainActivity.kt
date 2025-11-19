@@ -18,6 +18,9 @@ import android.content.Intent
 import android.media.Image
 import android.util.Log
 import android.view.View.INVISIBLE
+import android.view.ViewAnimationUtils
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.snackbar.Snackbar
 
@@ -41,8 +44,27 @@ class MainActivity : AppCompatActivity() {
         val flashcardQuestion = findViewById<TextView>(R.id. flashcard_question)
         val flashcardAnswer = findViewById<TextView>(R.id.flashcard_answer3)
        flashcardQuestion.setOnClickListener {
-           flashcardQuestion.visibility = INVISIBLE
-           flashcardAnswer.visibility = View.VISIBLE
+           val answerSideView = flashcardAnswer
+           val questionSideView = flashcardQuestion
+           // centre du cercle
+           val cx = answerSideView.width / 2
+           val cy = answerSideView.height / 2
+           // Rayon final
+           val finalRadius = Math.hypot(cx.toDouble(), cy.toDouble()).toFloat()
+           val anim = ViewAnimationUtils.createCircularReveal(answerSideView,
+               cx,
+               cy,
+               0f,
+               finalRadius)
+
+           questionSideView.visibility = View.INVISIBLE
+           answerSideView.visibility = View.VISIBLE
+
+           anim.duration = 500
+           anim.start()
+
+           //flashcardQuestion.visibility = INVISIBLE
+          // flashcardAnswer.visibility = View.VISIBLE
        }
 
 
@@ -248,6 +270,7 @@ class MainActivity : AppCompatActivity() {
                flashcardAnswer.text.toString().replace("(R:)", "").trim()
            )
            resultLauncher.launch(intent)
+           overridePendingTransition(R.anim.right_in, R.anim.left_out)
        }
 
 
@@ -264,10 +287,31 @@ class MainActivity : AppCompatActivity() {
                 // Ouvrir AddCardActivity
                 val intent = Intent(this, AjouterActiviteCarte::class.java)
                 resultLauncher.launch(intent)
+                overridePendingTransition(R.anim.right_in, R.anim.left_out)
             }
        var currentCardDisplayIndex = 0
        val next_icon = findViewById<ImageView>(R.id.next_icon)
-       next_icon.setOnClickListener {
+       next_icon.setOnClickListener { v ->
+           val leftOut = AnimationUtils.loadAnimation(v.context, R.anim.left_out)
+           val rightIn = AnimationUtils.loadAnimation(v.context, R.anim.right_in)
+
+           leftOut.setAnimationListener(object : Animation.AnimationListener {
+               override fun onAnimationStart(animation: Animation?){}
+               override fun onAnimationEnd(animation: Animation?){
+                   //Charger la prochaine carte
+                   currentCardDisplayIndex++
+                   if (currentCardDisplayIndex >= allFlashcard.size) {
+                       currentCardDisplayIndex = 0
+                   }
+                   flashcardQuestion.text = allFlashcard[currentCardDisplayIndex].question
+                   flashcardAnswer.text = allFlashcard[currentCardDisplayIndex].answer
+                   // Maintenant l'application d'entree
+                   flashcardQuestion.startAnimation(rightIn)
+               }
+               override fun onAnimationRepeat(animation: Animation){}
+           })
+           // demarrer la 1ere animation sortie
+           flashcardQuestion.startAnimation(leftOut)
            if (allFlashcard.size ==0) {
                return@setOnClickListener
            }
@@ -275,7 +319,7 @@ class MainActivity : AppCompatActivity() {
            if(currentCardDisplayIndex >= allFlashcard.size) {
                Snackbar.make(
                    findViewById<TextView>(R.id.flashcard_question),
-                   "You ve reached" ,
+                   "Sauvegarde terminee" ,
                    Snackbar.LENGTH_SHORT).show()
                currentCardDisplayIndex = 0
            }

@@ -68,11 +68,10 @@
 
     <ImageView
         android:id="@+id/next_icon"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_margin="320dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="300dp"
         android:contentDescription="Next"
-        android:layout_above="@id/cercle_plus_icon"
         android:src="@drawable/next_icon" />
 
 
